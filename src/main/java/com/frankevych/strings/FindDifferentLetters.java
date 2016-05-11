@@ -9,18 +9,16 @@ import java.util.List;
  * @version 1.0
  * @since 09.04.2016
  */
-public class FindLetters {
+public class FindDifferentLetters {
 
 	private static final String WORD_ONE = "comprehensive";
 	private static final String WORD_TWO = "austronawt";
 	
 	public static void main(String[] args){
-		FindLetters letters = new FindLetters();
-		List<Character> differentLetters = letters.findMissingLetters(WORD_ONE, WORD_TWO);
+		FindDifferentLetters letters = new FindDifferentLetters();
+		List<Character> differentLetters = letters.findDifferentLetters(WORD_ONE, WORD_TWO);
 		System.out.println("different letters are: ");
-		for (Character character : differentLetters) {
-			System.out.print(character + " ");
-		}
+		letters.output(differentLetters);
 	}
 	
 	/**
@@ -29,7 +27,7 @@ public class FindLetters {
 	 * @param wordTwo
 	 * @return List of missing characters in words
 	 * */
-	public List<Character> findMissingLetters(String wordOne, String wordTwo){
+	public List<Character> findDifferentLetters(String wordOne, String wordTwo){
 		List<Character> listOfLetters = new ArrayList<>();
 		for (int i = 0; i < wordOne.length(); i++) {
 			if(!wordTwo.contains(wordOne.charAt(i) + "")){
@@ -37,5 +35,11 @@ public class FindLetters {
 			}
 		}
 		return listOfLetters;
+	}
+	
+	public void output(List<Character> list) {
+		for (Character character : list) {
+			System.out.print(character + " ");
+		}
 	}
 }
